@@ -1,0 +1,12 @@
+Feature: to test that roles are defined correctly for the users,
+  I want to login to the application and see information that corresponds to my role
+
+  Scenario Outline: login and verify tabs
+    Given I am on the login page
+    When I login as "<userRole>"
+    Then I can see "<corresponding tabs>" on my home page
+    Examples:
+      | userRole    | corresponding tabs                |
+      | admin       | Candidates, Interviewers, Reports |
+      | supervisor  | Candidates, Interviewers, Reports |
+      | interviewer | Reports                           |
